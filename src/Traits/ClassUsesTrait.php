@@ -7,8 +7,7 @@ use Hodeia\Classusestrait\Helpers;
 /**
  * Trait ClassUsesTrait
  *
- * This trait provides a method to recursively retrieve all traits used by a class, including those used by its parent
- * classes and traits.
+ * This trait provides helper methods for working with traits.
  *
  * @author Oier Beaskoetxea <oier@hodeia.digital>
  * @package Hodeia\Classusestrait\Traits
@@ -27,7 +26,7 @@ trait ClassUsesTrait
         // Get the name of the class that uses this trait
         $class = static::class;
 
-        // Call the class_uses_deep method of the Helpers class to get the traits used by the class
+        // Call the classUsesDeep method of the Helpers class to get the traits used by the class
         return Helpers::classUsesDeep($class, $autoload);
     }
 
@@ -43,6 +42,7 @@ trait ClassUsesTrait
         // Get the name of the class that uses this trait
         $class = static::class;
 
+        // Call the classContainsTrait method of the Helpers class to check if the class contains the specified trait
         return Helpers::classContainsTrait($class, $trait, $autoload);
     }
 }
