@@ -40,6 +40,9 @@ trait ClassUsesTrait
      */
     public function classContainsTrait(string $trait, bool $autoload = true): bool
     {
-        return in_array($trait, $this->classUsesDeep($autoload));
+        // Get the name of the class that uses this trait
+        $class = static::class;
+
+        return Helpers::classContainsTrait($class, $trait, $autoload);
     }
 }
